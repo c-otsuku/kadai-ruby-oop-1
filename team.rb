@@ -1,34 +1,38 @@
-class Baseball_Team
+class Team
     attr_accessor :name, :win, :lose, :draw
-    def initialize
+    
+    def initialize(name, win, lose, draw)
         self.name = name
         self.win = win
         self.lose = lose
         self.draw = draw
     end
-    
-    num = 1
-    num.to_f
-    def calc_win_rate
-        return self.win / (self.win + self.lose)
+  
+    def calc_win_rate(win, lose)
+        return (win.to_f / (win + lose).to_f)
     end
     
-    def show_team_result
-        puts "{self.name}の2020年の成績は{self.win}勝{self.lose}敗{self.draw}分、勝率は{self.win}/({self.win} + {self.lose})}です。"
-    end
-    
-    def initialize
-        self.Giants = Baseball_Team('Giants', 67, 45 ,8)
-        self.Tigers = Baseball_Team('Tigers', 60, 53, 7)
-        self.Dragons = Baseball_Team('Dragons', 60, 55, 5)
-        self.BayStars = Baseball_Team('BayStars', 56, 58, 6)
-        self.Carp = Baseball_Team('Carp', 52, 56, 12)
-        self.Swallows = Baseball_Team('Swallows', 41, 69, 10)
-    end
 
-    attr_accessor :Giants, :Tigers, :Dragons, :BayStars, :Carp, :Swallows
-    def initialize
-        team.show_team_result()
-        print(team.show_team_result())
+    
+      # オブジェクトのメソッド（処理）
+    def show_team_result
+        rate = self.calc_win_rate(self.win, self.lose)
+        puts "#{self.name}の2020年の成績は、#{self.win}勝#{self.lose}敗#{self.draw}分、勝率は#{rate}です。"
     end
 end
+
+
+team_A = Team.new('Giants', 67, 45 ,8)
+team_B = Team.new('Tigers', 60, 53, 7)
+team_C = Team.new('Dragons', 60, 55, 5)
+team_D = Team.new('BayStars', 56, 58, 6)
+team_E = Team.new('Carp', 52, 56, 12)
+team_F = Team.new('Swallows', 41, 69, 10)
+
+team_A.show_team_result
+team_B.show_team_result
+team_C.show_team_result
+team_D.show_team_result
+team_E.show_team_result
+team_F.show_team_result
+  
